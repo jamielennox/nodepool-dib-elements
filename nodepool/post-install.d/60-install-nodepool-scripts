@@ -23,7 +23,10 @@ mkdir -p /opt/nodepool-scripts
 
 # copy the scripts from the stagin directory into the image
 if [ -d /tmp/in_target.d/nodepool-scripts ]; then
-   cp -ar /tmp/in_target.d/nodepool-scripts/* /opt/nodepool-scripts/
+   # gah, if the folder is empty the copy fails, test it
+   if [ -n "$(ls -A /tmp/in_target.d/nodepool-scripts/ 2>/dev/null)" ]; then
+       cp -ar /tmp/in_target.d/nodepool-scripts/* /opt/nodepool-scripts/
+   fi
 fi
 
 # set the correct folder permissions
