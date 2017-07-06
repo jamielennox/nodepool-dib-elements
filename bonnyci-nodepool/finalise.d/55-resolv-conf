@@ -6,9 +6,11 @@ if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
 fi
 set -e
 
-rm -f /etc/resolv.conf.ORIG
-ln -s /run/resolvconf/resolv.conf /etc/resolv.conf.ORIG
+# using new dib patch, hopefully shouldn't need this
 
+#rm -f /etc/resolv.conf.ORIG
+#ln -s /run/resolvconf/resolv.conf /etc/resolv.conf.ORIG
+#
 #cat << EOF > /etc/resolv.conf.ORIG
 #nameserver 8.8.8.8
 #nameserver 8.8.4.4
